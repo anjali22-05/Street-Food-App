@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.card {
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  width: 400px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.title {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.question {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: #4f46e5;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  font-size: 18px;
+  outline: none;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+input:focus {
+  border-color: #4f46e5;
+}
+
+.btn-group {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.validate-btn {
+  background: #22c55e;
+  color: white;
+}
+
+.validate-btn:hover {
+  background: #16a34a;
+}
+
+.new-btn {
+  background: #3b82f6;
+  color: white;
+}
+
+.new-btn:hover {
+  background: #2563eb;
+}
+
+h3 {
+  margin-top: 20px;
+  color: #333;
+}
