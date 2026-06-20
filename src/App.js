@@ -4,15 +4,16 @@ import LoginPage from "./component/Login";
 import SignupPage from "./component/Signup";
 import Home from "./component/Home";
 
-function App() {   // routes hote 
+
+function App() {  
   return (
-    <BrowserRouter>// for main router 
-      <Routes> // multiple route for handling components
-        <Route path="/" element={<LoginPage />} /> // one components as a element 
+    <BrowserRouter>
+      <Routes> 
+        <Route path="/" element={<LoginPage />} />  
 
-        <Route path="/signup" element={<SignupPage />} />// signup 
+        <Route path="/signup" element={<SignupPage />} /> 
 
-        <Route path="/home" element={<Home />} /> // home
+        <Route path="/home" element={<Home />} /> 
       </Routes>
     </BrowserRouter>
   );
