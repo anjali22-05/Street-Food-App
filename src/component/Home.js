@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 export default function Home() {
-
+const navigate=useNavigate();
 
  const user = JSON.parse(
    localStorage.getItem("user")
@@ -48,6 +48,24 @@ export default function Home() {
      >
        Logout
      </button>
+          <button
+        onClick={() => {
+          navigate("/addShop");
+        }}
+        style={buttonStyle}
+      >
+        Add Shops
+      </button>
+
+           <button
+        onClick={() => {
+          navigate("/home");
+        }}
+        style={buttonStyle}
+      >
+        View Shops
+      </button>
+
    </>
  );
 }
