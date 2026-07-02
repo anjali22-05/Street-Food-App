@@ -4,6 +4,7 @@ import LoginPage from "./component/Login";
 import SignupPage from "./component/Signup";
 import Home from "./component/Home";
 import AddShop from "./component/addShop"
+import ViewShops from "./component/ViewShops";
 
 function App() {  
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/home" element={<Home />} /> 
 
         <Route path="/addShop" element={<AddShop/>}/>
+        <Route path="/viewShops" element={<ViewShops/>}/>
       </Routes>
     </BrowserRouter>    
   );

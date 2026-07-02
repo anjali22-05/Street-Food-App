@@ -22,7 +22,7 @@ import {
 // }
 
 function AddShop() {
-
+    const navigate=useNavigate();
     const [shop, setShop] = useState({
         shopName: "",
         timing: "",
@@ -146,6 +146,10 @@ function AddShop() {
                     Add Shop
                 </button>
             </form>
+            <button onClick={()=>{
+                navigate("/home");
+            }}>Home
+            </button>
         </div>
     );
 }

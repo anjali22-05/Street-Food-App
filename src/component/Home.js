@@ -59,7 +59,7 @@ const navigate=useNavigate();
 
            <button
         onClick={() => {
-          navigate("/home");
+          navigate("/viewshops");
         }}
         style={buttonStyle}
       >
