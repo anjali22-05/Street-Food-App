@@ -2,7 +2,6 @@ const express=require("express");
 const bcryptjs=require("bcryptjs");
 const User=require("../models/User");
 const router=express.Router();
-
 //it is signup route
 router.post("/signup", async (req, res) => {
  try {
