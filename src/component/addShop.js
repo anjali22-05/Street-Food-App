@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import axios from "axios";
+import "./AddShop.css";
 import {
     BrowserRouter,
     Routes,
@@ -25,6 +27,7 @@ function AddShop() {
         shopName: "",
         timing: "",
         price: "",
+        popularDish: "",
         address: "",
         image: "null",
     });
@@ -36,10 +39,16 @@ function AddShop() {
         });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = async (e) => {
+    e.preventDefault();
 
-        console.log("Shop Details:", shop);
+    try {
+        const response= await axios.post(
+            "http://localhost:5001/shop/addShop",
+            shop
+        );
+
+        console.log("Shop Details:", response.data);
 
         alert("✅ Shop Added Successfully!");
 
@@ -47,12 +56,16 @@ function AddShop() {
             shopName: "",
             timing: "",
             price: "",
+            popularDish:"",
             address: "",
             image: "",
         });
 
-       
-    };
+    } catch (error) {
+        console.error("Error:", error);
+        alert("❌ Failed to add shop");
+    }
+};
 
     return (
         <div
@@ -75,7 +88,15 @@ function AddShop() {
                     onChange={handleChange}
                     required
                 />
-
+                <br /><br />
+            <input
+    type="text"
+    name="popularDish"
+    placeholder="Popular Dish"
+    value={shop.popularDish}
+    onChange={handleChange}
+    required
+/>
                 <br /><br />
 
                 <input
