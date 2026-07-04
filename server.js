@@ -28,65 +28,13 @@ app.get("/alluser",async(req,res)=>{
     const user= await User.find();
     console.log(user);
     user.forEach(e=>console.log(e.user));
-    res.status(200).json(user);
-
-    
-  // user.forEach(e=>console.log(e.name));  
+    res.status(200).json(user);  
   console.log(user.name);
   }
     catch(error){
       res.status(500).json({messege:error.messege})
     }
 })
-app.get("/viewShop/:id", async (req, res) => {
-  try {
-    const shop = await Shops.findById(req.params.id);
-
-    if (!shop) {
-      return res.status(404).json({
-        message: "Shop not found",
-      });
-    }
-
-    res.status(200).json(shop);
-  } catch (error) {
-    res.status(500).json({
-      message: error.message,
-    });
-  }
-});
-
-
-
-
-app.put("/updateShop/:id", async (req, res) => {
-  try {
-    const updatedShop = await Shops.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      {
-        new: true,
-        runValidators: true,
-      }
-    );
-
-    if (!updatedShop) {
-      return res.status(404).json({
-        message: "Shop not found",
-      });
-    }
-
-    res.status(200).json({
-      message: "Shop updated successfully",
-      shop: updatedShop,
-    });
-  } catch (error) {
-    res.status(500).json({
-      message: error.message,
-    });
-  }
-});
-// app.use("/alluser",userRoutes);
 app.use("", authRoutes);
 
 app.use("/shop", shopRoutes);
