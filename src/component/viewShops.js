@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {Link,useNavigate} from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 const ViewShops = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [shops, setShops] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -102,13 +102,14 @@ const ViewShops = () => {
                   <strong>📍 Address:</strong> {shop.address}
                 </p>
               </div>
-              <button onClick={()=>{navigate(`/editShop/${shop._id}`)
+              <button onClick={() => {
+                navigate(`/editShop/${shop._id}`)
 
               }
-                } >
+              } >
                 Edit
               </button>
-              <br/>
+              <br />
               <button >
                 Delete
               </button>

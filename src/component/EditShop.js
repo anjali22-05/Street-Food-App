@@ -24,7 +24,7 @@ const EditShop = () => {
   const getShop = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5001/viewShop/${id}`
+        `http://localhost:5001/shop/viewShop/${id}`
       );
 
       setShop(res.data);
@@ -48,7 +48,7 @@ const EditShop = () => {
 
     try {
       await axios.put(
-        `http://localhost:5001/updateShop/${id}`,
+        `http://localhost:5001/shop/updateShop/${id}`,
         shop
       );
 
