@@ -9,17 +9,6 @@ import {
     useNavigate,
 } from "react-router-dom";
 
-// function Home() {
-//   return (
-//     <div style={{ textAlign: "center", marginTop: "50px" }}>
-//       <h1>🏪 Shop Management System</h1>
-
-//       <Link to="/add-shop">
-//         <button>Add Shop</button>
-//       </Link>
-//     </div>
-//   );
-// }
 
 function AddShop() {
     const navigate=useNavigate();

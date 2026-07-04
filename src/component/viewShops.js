@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import {Link,useNavigate} from "react-router-dom"
 const ViewShops = () => {
+  const navigate=useNavigate();
   const [shops, setShops] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -11,7 +12,7 @@ const ViewShops = () => {
 
   const fetchShops = async () => {
     try {
-      const res = await axios.get("http://localhost:5001/viewShops"); // Change port if needed
+      const res = await axios.get("http://localhost:5001/shop/viewShops"); // Change port if needed
       setShops(res.data);
     } catch (error) {
       console.log(error);
@@ -101,6 +102,16 @@ const ViewShops = () => {
                   <strong>📍 Address:</strong> {shop.address}
                 </p>
               </div>
+              <button onClick={()=>{navigate(`/editShop/${shop._id}`)
+
+              }
+                } >
+                Edit
+              </button>
+              <br/>
+              <button >
+                Delete
+              </button>
             </div>
           ))}
         </div>
