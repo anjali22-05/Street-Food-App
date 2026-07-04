@@ -27,4 +27,5 @@ const  shopSchema=new mongoose.Schema(
 
     }
 );
+
 module.exports=mongoose.model("Shops",shopSchema)

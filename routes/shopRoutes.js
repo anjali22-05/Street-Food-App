@@ -66,6 +66,21 @@ router.post("/addShop", async (req, res) => {
 });
 
 //fetching all shops
+router.get("/viewShop/:id",async (req,res)=>{
+  try{
+    const shop=await Shops.findById(req.params.id);
+    if(!shop){
+      return res.status(404).json({messege:"Shop Not Found"});
+      
+    }
+    return res.status(200).json(Shop);
+  }
+  catch(error){
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+})
 router.get("/viewShops", async (req, res) => {
   try {
     const shops = await Shops.find();
