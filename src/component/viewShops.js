@@ -5,10 +5,10 @@ const ViewShops = () => {
   const navigate = useNavigate();
   const [shops, setShops] = useState([]);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     fetchShops();
   }, []);
+
 
   const fetchShops = async () => {
     try {
@@ -21,6 +21,24 @@ const ViewShops = () => {
       setLoading(false);
     }
   };
+
+
+  const handleSubmit = async (id) => {
+   
+    try {
+       const check = window.confirm("Are You Sure Want To Delete this Shop");
+    if (check) { 
+      const result = await axios.delete(`http://localhost:5001/deleteShop/${id}`);
+      alert("SHOP DELETED SUCCESSFULLY");
+      setShops(shops.filter((shop) => shop._id !== id));
+    }
+  }
+    catch (error) {
+      console.log(error);
+      alert("Unable to delete shop");
+    }
+  }
+  
 
   if (loading) {
     return (
@@ -110,7 +128,7 @@ const ViewShops = () => {
                 Edit
               </button>
               <br />
-              <button >
+              <button onClick={() => handleSubmit(shop._id)}>
                 Delete
               </button>
             </div>
