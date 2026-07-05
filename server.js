@@ -6,6 +6,7 @@ const app = express();
 const authRoutes = require("./routes/authRoutes");
 const shopRoutes = require("./routes/shopRoutes")
 const Shops = require("./models/Shops");
+const { findById, findByIdAndDelete } = require("./models/User");
 const User=require(("./models/User"));
 
 
@@ -35,6 +36,42 @@ app.get("/alluser",async(req,res)=>{
       res.status(500).json({messege:error.messege})
     }
 })
+// app.delete("/deleteShop/:id",async(req,res)=>{
+//   try{
+//     const shop=await findByIdAndDelete(req.params.id);
+//     if (!shop) {
+//       return res.status(404).json({
+//         message: "Shop not found",
+//       });
+//     }
+//     res.status(200).json({messege:"Shop deleted successfully"});
+//   }
+//   catch (error) {
+//     res.status(500).json({
+//       message: error.message,
+//     });
+//   }
+// })
+
+app.delete("/deleteShop/:id", async (req, res) => {
+  try {
+    const shop = await Shops.findByIdAndDelete(req.params.id);
+
+    if (!shop) {
+      return res.status(404).json({
+        message: "Shop not found",
+      });
+    }
+
+    res.status(200).json({
+      message: "Shop deleted successfully",
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
 app.use("", authRoutes);
 
 app.use("/shop", shopRoutes);
