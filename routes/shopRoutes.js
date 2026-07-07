@@ -29,7 +29,38 @@ router.post("/addShop", async (req, res) => {
         message: "All fields are required"
       });
     }
+// for bulk upload the job 
+   router.post("/addManyShops", async (req, res) => {
+  try {
 
+    const shops = req.body;
+
+    if (!Array.isArray(shops)) {
+      return res.status(400).json({
+        success: false,
+        message: "Request body must be an array",
+      });
+    }
+
+    const savedShops = await Shops.insertMany(shops);
+
+    res.status(201).json({
+      success: true,
+      message: `${savedShops.length} shops added successfully`,
+      data: savedShops,
+    });
+
+  } catch (error) {
+
+    console.error(error);
+
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+
+  }
+});
     // 2. Using 'Shops.create' will now work perfectly. 
     // Changed the variable name to 'newShop' to avoid variable conflicts.
     const newShop = await Shops.create({
