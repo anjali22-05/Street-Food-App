@@ -411,10 +411,3 @@ export default function Home() {
     </ThemeProvider>
   );
 }
-
-/*
-  Optional: for the display font, add this to your public/index.html <head>:
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  If omitted, it gracefully falls back to system sans-serif.
-*/
