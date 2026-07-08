@@ -378,29 +378,7 @@ export default function Home() {
                       }}
                     />
 
-                    <CardActions sx={{ justifyContent: "space-between", px: 2, py: 1.5 }}>
-                      <Button
-                        size="small"
-                        variant="outlined"
-                        color="warning"
-                        startIcon={<Edit />}
-                        onClick={() => navigate(`/editShop/${shop._id}`)}
-                        sx={{ borderRadius: 2 }}
-                      >
-                        Edit
-                      </Button>
-
-                      <Button
-                        size="small"
-                        variant="contained"
-                        color="primary"
-                        startIcon={<Delete />}
-                        onClick={() => handleDelete(shop._id)}
-                        sx={{ borderRadius: 2 }}
-                      >
-                        Delete
-                      </Button>
-                    </CardActions>
+                
                   </Card>
                 </Fade>
               </Grid>
