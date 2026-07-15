@@ -31,7 +31,6 @@ import {
   Logout,
   LocalFireDepartment,
   Edit,
-  Delete,
   Search,
   Storefront,
   RoomOutlined,
@@ -112,17 +111,7 @@ export default function Home() {
     }
   };
 
-  const handleDelete = async (id) => {
-    if (!window.confirm("Are you sure you want to delete this shop?")) return;
-    try {
-      await axios.delete(`http://localhost:5001/shop/deleteShop/${id}`);
-      alert("Shop Deleted Successfully");
-      setShops((prev) => prev.filter((shop) => shop._id !== id));
-    } catch (err) {
-      console.log(err);
-      alert("Unable to delete shop");
-    }
-  };
+ 
 
   const greeting = useMemo(() => {
     const hour = new Date().getHours();
@@ -211,6 +200,7 @@ export default function Home() {
           >
             Add Shop
           </Button>
+          
 
           <IconButton
             onClick={() => {
@@ -366,6 +356,17 @@ export default function Home() {
                           sx={{ display: "flex", alignItems: "center", gap: 0.75 }}
                         >
                           <RoomOutlined fontSize="small" /> {shop.address}
+                          <Button onClick={() => navigate("/review")}
+                          size="small"
+                        
+                        color="#841584"
+                        sx={{ mt: 1, mb: 1.5, fontWeight: 700, color: "hsl(0, 0%, 97%)" }}
+                            >
+                        
+                        Review
+                      
+                          </Button>
+                         
                         </Typography>
                       </Box>
                     </CardContent>
