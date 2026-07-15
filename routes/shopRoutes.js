@@ -147,8 +147,8 @@ router.get("/viewShops", async (req, res) => {
   try {
     const shops = await Shops.find();
 
-    console.log(shops);
-    shops.forEach(e=>console.log(e.shopName));
+    //console.log(shops);
+    //shops.forEach(e=>console.log(e.shopName));
     // console.log(shops[0].shopName);
     res.status(200).json(shops);
   } catch (error) {
